@@ -1,0 +1,27 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: ${APPLICATION_PORT:-2020}
+      selectorThreads: ${DW_SELECTOR_THREADS:-8}
+      acceptorThreads: ${DW_ACCEPTOR_THREADS:-4}
+  adminConnectors:
+    - type: http
+      port: ${ADMIN_PORT:-2021}
+      selectorThreads: ${DW_SELECTOR_THREADS:-8}
+      acceptorThreads: ${DW_ACCEPTOR_THREADS:-4}
+  requestLog:
+    appenders:
+      - type: console
+        threshold: INFO
+
+logging:
+  level: INFO
+  loggers:
+    io.pravega: DEBUG
+  appenders:
+    - type: console
+      threshold: INFO
+
+
+pravegaControllerUri: ${PRAVEGA_CONTROLLER_URI:-tcp://localhost:9090}
+configPath: ${CONFIG_PATH:-/etc/config/testConfig.json}

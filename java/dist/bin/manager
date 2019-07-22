@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BIN_DIR=$( cd "$( dirname "$0" )" && pwd )
+
+APP_NAME=`basename $0`
+APP_HOME="${BIN_DIR}/.."
+APP_MAIN="io.pravega.smoketest.testmanager.TestManager"
+
+MIN_MEMORY=${MIN_MEMORY:-64m}
+MAX_MEMORY=${MAX_MEMORY:-320m}
+NETTY_THREADS=${NETTY_THREADS:-8}
+JAVA=${JAVA_EXEC:-java}
+
+LOG_LEVEL=${LOG_LEVEL:-INFO}
+
+if [ $LOG_LEVEL = "INFO" ]; then
+ STREAM_LOG_LEVEL="ERROR"
+else
+ STREAM_LOG_LEVEL="${LOG_LEVEL}"
+fi
+
+echo "LOG_LEVEL=${LOG_LEVEL}"
+echo "STREAM_LOG_LEVEL=${STREAM_LOG_LEVEL}"
+
+exec -a "${APP_NAME}" ${JAVA} -server -Dio.netty.eventLoopThreads=${NETTY_THREADS} -Xmx${MAX_MEMORY} -Xms${MIN_MEMORY} -d64 -Dlogback.configurationFile=${APP_HOME}/conf/logback.xml -DAPP_HOME="${APP_HOME}" -cp "${APP_HOME}/lib/*" ${APP_MAIN} server "${APP_HOME}/conf/application.yml"
