@@ -1,0 +1,81 @@
+./src/main/java/io/pravega/smoketest/model/StreamPolicies.java:import io.pravega.client.stream.RetentionPolicy;
+./src/main/java/io/pravega/smoketest/model/StreamPolicies.java:import io.pravega.client.stream.ScalingPolicy;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:import io.pravega.client.ClientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:import io.pravega.client.stream.EventStreamWriter;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:import io.pravega.client.stream.EventWriterConfig;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:import io.pravega.client.stream.impl.JavaSerializer;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:    private ClientFactory clientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:    public PravegaWriter withClientFactory(ClientFactory clientFactory) {
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:        this.clientFactory = clientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriter.java:        producer = clientFactory.createEventWriter(streamName, SERIALIZER, eventWriterConfig);
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/WriterWorkerManager.java:import io.pravega.client.ClientConfig;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/WriterWorkerManager.java:import io.pravega.client.ClientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/WriterWorkerManager.java:    private ClientFactory clientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/WriterWorkerManager.java:        clientFactory = ClientFactory.withScope(scope,
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/WriterWorkerManager.java:                .withClientFactory(clientFactory)
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriterState.kt:import io.pravega.client.stream.EventStreamWriter
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriterState.kt:import io.pravega.client.stream.Transaction
+./src/main/java/io/pravega/smoketest/testworker/workers/writers/PravegaWriterState.kt:import io.pravega.client.stream.TxnFailedException
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.ClientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.EventRead;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.EventStreamReader;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.Position;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.ReaderConfig;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.ReaderGroup;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.ReaderGroupConfig;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.TruncatedDataException;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:import io.pravega.client.stream.impl.JavaSerializer;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:    private ClientFactory clientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:    public PravegaReader withClientFactory(ClientFactory clientFactory) {
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:        this.clientFactory = clientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/PravegaReader.java:        eventStreamReader = clientFactory.createReader(readerId, readerGroup.getGroupName(), SERIALIZER, readerConfig);
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:import io.pravega.client.ClientConfig;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:import io.pravega.client.ClientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:import io.pravega.client.admin.ReaderGroupManager;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:import io.pravega.client.stream.ReaderGroup;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:import io.pravega.client.stream.ReaderGroupConfig;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:    private ClientFactory clientFactory;
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:        ClientConfig clientConfig = ClientConfig.builder()
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:        clientFactory = ClientFactory.withScope(scopeName, clientConfig);
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:        readerGroupManager = ReaderGroupManager.withScope(scopeName, clientConfig);
+./src/main/java/io/pravega/smoketest/testworker/workers/readers/ReaderWorkerManager.java:                .withClientFactory(clientFactory)
+./src/main/java/io/pravega/smoketest/testworker/MessageClient.java:import io.pravega.smoketest.utils.restclient.RestClient;
+./src/main/java/io/pravega/smoketest/testworker/MessageClient.java:import io.pravega.smoketest.utils.restclient.RestClientUtil;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.ClientConfig;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.admin.StreamManager;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.stream.RetentionPolicy;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.stream.ScalingPolicy;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.stream.StreamConfiguration;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.stream.impl.Credentials;
+./src/main/java/io/pravega/smoketest/utils/PravegaStreamHelper.java:import io.pravega.client.stream.impl.DefaultCredentials;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:import org.glassfish.jersey.client.ClientProperties;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:import javax.ws.rs.client.Client;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:import javax.ws.rs.client.ClientBuilder;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:     * Creates the default client used for all rest client.
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:     * @return the client.
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:     * Creates the default client used for all rest client.
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClientUtil.java:     * @return the client.
+./src/main/java/io/pravega/smoketest/utils/restclient/JacksonObjectMapperProvider.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/LogSanitizer.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/SimpleLinkModule.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/LoggingFilter.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/LoggingFilter.java:import javax.ws.rs.client.ClientRequestContext;
+./src/main/java/io/pravega/smoketest/utils/restclient/LoggingFilter.java:import javax.ws.rs.client.ClientRequestFilter;
+./src/main/java/io/pravega/smoketest/utils/restclient/LoggingFilter.java:import javax.ws.rs.client.ClientResponseContext;
+./src/main/java/io/pravega/smoketest/utils/restclient/LoggingFilter.java:import javax.ws.rs.client.ClientResponseFilter;
+./src/main/java/io/pravega/smoketest/utils/restclient/SSLUtil.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:package io.pravega.smoketest.utils.restclient;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:import javax.ws.rs.client.Entity;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:import javax.ws.rs.client.Invocation.Builder;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:import javax.ws.rs.client.WebTarget;
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java: * Simple wrapper around a JAX-RS client to make operations simpler
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:     * Reference for possibile properties are in {@link org.glassfish.jersey.client.HttpUrlConnectorProvider}
+./src/main/java/io/pravega/smoketest/utils/restclient/RestClient.java:     * and {@link org.glassfish.jersey.client.ClientProperties}
+./src/main/java/io/pravega/smoketest/testmanager/manager/PravegaTestPreparer.java:import io.pravega.client.ClientConfig;
+./src/main/java/io/pravega/smoketest/testmanager/manager/PravegaTestPreparer.java:import io.pravega.client.admin.ReaderGroupManager;
+./src/main/java/io/pravega/smoketest/testmanager/manager/PravegaTestPreparer.java:import io.pravega.client.stream.ReaderGroup;
+./src/main/java/io/pravega/smoketest/testmanager/manager/PravegaTestPreparer.java:import io.pravega.client.stream.ReaderGroupConfig;
+grep: input file ‘./clientRefs.out’ is also the output
+./build.gradle:    compile "io.pravega:pravega-client:${pravegaVersion}",
